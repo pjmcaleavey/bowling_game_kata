@@ -20,7 +20,7 @@ describe 'Game' do
     expect(game.score).to eq(20)
   end
 
-  # it 'rolls one spare' do
+  # it 'rolls spare followed by 3' do
   #   game = Game.new
   #   game.roll(5)
   #   game.roll(5)

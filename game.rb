@@ -12,10 +12,12 @@ class Game
   end
 
   def score
-    #binding.pry
     sum_of_rolls = 0
-    @previous_rolls.each { |rolls| sum_of_rolls += rolls}
-
+    @previous_rolls.each do |rolls| #{ |rolls| sum_of_rolls += rolls }
+       sum_of_rolls += rolls
+       # if rolls + 1 == 10
+       #  sum_of_rolls == 
+    end
     return sum_of_rolls
     #called at the end of a game. return total score for that
     #game must iterate thru all the frames & calculate the score
