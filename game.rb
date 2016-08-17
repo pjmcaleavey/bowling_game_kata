@@ -16,12 +16,17 @@ class Game
     roll_count = 0
 
     10.times do
-      if @previous_rolls[roll_count] + @previous_rolls[roll_count + 1] == 10
+      if @previous_rolls[roll_count] == 10
+        sum_of_rolls += 10 + @previous_rolls[roll_count + 1] + @previous_rolls[roll_count + 2]
+        roll_count += 1
+      elsif @previous_rolls[roll_count] + @previous_rolls[roll_count + 1] == 10
         sum_of_rolls += 10 + @previous_rolls[roll_count + 2]
+        roll_count += 2
       else
         sum_of_rolls += @previous_rolls[roll_count] + @previous_rolls[roll_count + 1]
+        roll_count += 2
       end
-      roll_count += 2
+
     end
       return sum_of_rolls
   end

@@ -31,4 +31,15 @@ describe 'Game' do
     expect(game.score).to eq(16)
   end
 
+  it 'rolls a strike followed by a 3 & 4' do
+    game = Game.new
+    game.roll(10)
+    game.roll(3)
+    game.roll(4)
+    16.times do
+      game.roll(0)
+    end
+    expect(game.score).to eq(24)
+  end
+
 end
