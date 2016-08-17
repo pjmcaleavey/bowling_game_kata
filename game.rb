@@ -13,13 +13,35 @@ class Game
 
   def score
     sum_of_rolls = 0
-    @previous_rolls.each do |rolls| #{ |rolls| sum_of_rolls += rolls }
-       sum_of_rolls += rolls
-       # if rolls + 1 == 10
-       #  sum_of_rolls == 
+    roll_count = 0
+
+    10.times do
+      if @previous_rolls[roll_count] + @previous_rolls[roll_count + 1] == 10
+        sum_of_rolls += 10 + @previous_rolls[roll_count + 2]
+      else
+        sum_of_rolls += @previous_rolls[roll_count] + @previous_rolls[roll_count + 1]
+      end
+      roll_count += 2
     end
-    return sum_of_rolls
-    #called at the end of a game. return total score for that
-    #game must iterate thru all the frames & calculate the score
+      return sum_of_rolls
   end
+  #called at the end of a game. return total score for that
+  #game must iterate thru all the frames & calculate the score
+
+
+
+
+    # @previous_rolls.each do |rolls| #{|rolls| sum_of_rolls += rolls}
+    #   #binding.pry
+    #   if @previous_rolls[rolls] + @previous_rolls[rolls + 1] == 10#spare
+    #     sum_of_rolls += 10 + @sum_of_rolls[rolls + 2]
+    #     #@previous_rolls[rolls + 2]
+    #   else
+    #     sum_of_rolls += @previous_rolls[rolls] + @previous_rolls[rolls + 1]
+    #   end
+    #   @previous_rolls += 2
+    # end
+    # return sum_of_rolls
+
+
 end
