@@ -3,7 +3,6 @@ require './game' # require_relative 'game' - also works
 
 describe 'Game' do
 
-
   it 'can score a gutter ball game' do
     game = Game.new
     20.times do
@@ -42,4 +41,12 @@ describe 'Game' do
     expect(game.score).to eq(24)
   end
 
+  it 'rolls a perfect game' do
+    game = Game.new
+    12.times do
+      game.roll(10)
+    end
+  end
 end
+
+#refactor: let, begin

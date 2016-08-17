@@ -26,7 +26,6 @@ class Game
         sum_of_rolls += @previous_rolls[roll_count] + @previous_rolls[roll_count + 1]
         roll_count += 2
       end
-
     end
       return sum_of_rolls
   end
@@ -34,19 +33,5 @@ class Game
   #game must iterate thru all the frames & calculate the score
 
 
-
-
-    # @previous_rolls.each do |rolls| #{|rolls| sum_of_rolls += rolls}
-    #   #binding.pry
-    #   if @previous_rolls[rolls] + @previous_rolls[rolls + 1] == 10#spare
-    #     sum_of_rolls += 10 + @sum_of_rolls[rolls + 2]
-    #     #@previous_rolls[rolls + 2]
-    #   else
-    #     sum_of_rolls += @previous_rolls[rolls] + @previous_rolls[rolls + 1]
-    #   end
-    #   @previous_rolls += 2
-    # end
-    # return sum_of_rolls
-
-
+  #refactor in class & test: strike(), spare()
 end
