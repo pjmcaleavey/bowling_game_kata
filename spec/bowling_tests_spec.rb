@@ -4,6 +4,9 @@ require './game' # require_relative 'game' - also works
 describe 'Game' do
 
   let(:game) { Game.new }
+  #could also do:
+  # subject { Game.new }
+  #since Game is the subject
 
   it 'can score a gutter ball game' do
     20.times do

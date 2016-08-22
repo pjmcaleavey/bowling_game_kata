@@ -13,18 +13,20 @@ class Game
 
   def score
     sum_of_rolls = 0
-    roll_count = 0
+    @roll_count = 0
 
     10.times do
-      if @previous_rolls[roll_count] == 10
-        sum_of_rolls += 10 + @previous_rolls[roll_count + 1] + @previous_rolls[roll_count + 2]
-        roll_count += 1
-      elsif @previous_rolls[roll_count] + @previous_rolls[roll_count + 1] == 10
-        sum_of_rolls += 10 + @previous_rolls[roll_count + 2]
-        roll_count += 2
+      if strike
+        sum_of_rolls += 10 + @previous_rolls[@roll_count + 1] +
+                        @previous_rolls[@roll_count + 2]
+        @roll_count += 1
+      elsif spare
+        sum_of_rolls += 10 + @previous_rolls[@roll_count + 2]
+        @roll_count += 2
       else
-        sum_of_rolls += @previous_rolls[roll_count] + @previous_rolls[roll_count + 1]
-        roll_count += 2
+        sum_of_rolls += @previous_rolls[@roll_count] +
+                        @previous_rolls[@roll_count + 1]
+        @roll_count += 2
       end
     end
       return sum_of_rolls
@@ -32,6 +34,13 @@ class Game
   #called at the end of a game. return total score for that
   #game must iterate thru all the frames & calculate the score
 
+  def spare
+    @previous_rolls[@roll_count] + @previous_rolls[@roll_count + 1] == 10
+  end
+
+  def strike
+    @previous_rolls[@roll_count] == 10
+  end
 
   #refactor in class & test: strike(), spare()
 end
